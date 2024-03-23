@@ -1,0 +1,50 @@
+---
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+---
+
+<Layout title="About me">
+  <main>
+    <Navigation />
+    <h1>README</h1>
+
+    <p>
+      My name is Ahmed Waseem Saeed, and I am currently a master's student at
+      the University of Oslo, studying Informatics: Digital Economy and
+      Leadership. I am on my 5th and last year, and writing my master's thesis
+      on hybrid work models and the impact of leaders on making hybrid work
+      function optimally.
+    </p>
+
+    <br />
+
+    <p>
+      Beyond that, I would have say I have an above average interest in football
+      (and sports in general). I also love to learn new stuff and read books in
+      my sparetime.
+    </p>
+
+    <Footer />
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+</style>

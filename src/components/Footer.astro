@@ -1,0 +1,25 @@
+---
+const baseURl = "https://www.";
+const platforms = [
+  {
+    name: "github",
+    url: `${baseURl}github.com/ahmeds99`,
+    img: "/some/github.svg",
+  },
+  {
+    name: "linkedin",
+    url: `${baseURl}linkedin.com/in/ahmed-waseem-saeed-122b2b1a2`,
+    img: "/some/linkedin.svg",
+  },
+];
+---
+
+<footer class="flex">
+  {
+    platforms.map(({ url, img }) => (
+      <a href={url}>
+        <img src={img} />
+      </a>
+    ))
+  }
+</footer>
