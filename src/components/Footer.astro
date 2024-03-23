@@ -14,11 +14,11 @@ const platforms = [
 ];
 ---
 
-<footer class="flex">
+<footer class="flex mt-10">
   {
     platforms.map(({ url, img }) => (
-      <a href={url}>
-        <img src={img} />
+      <a href={url} class="m-2">
+        <img src={img} height="40" width="40" />
       </a>
     ))
   }
