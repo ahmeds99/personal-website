@@ -1,25 +1,32 @@
 ---
 const baseURl = "https://www.";
+
 const platforms = [
   {
-    name: "github",
+    name: "GitHub",
     url: `${baseURl}github.com/ahmeds99`,
     img: "/some/github.svg",
   },
   {
-    name: "linkedin",
+    name: "LinkedIn",
     url: `${baseURl}linkedin.com/in/ahmed-waseem-saeed-122b2b1a2`,
     img: "/some/linkedin.svg",
   },
 ];
 ---
 
-<footer class="flex mt-10">
-  {
-    platforms.map(({ url, img }) => (
-      <a href={url} class="m-2">
-        <img src={img} height="40" width="40" />
-      </a>
-    ))
-  }
+<footer
+  class="flex justify-between items-center mt-10 py-2 border-t border-black"
+>
+  <div>Ahmed Waseem Saeed</div>
+
+  <div class="flex">
+    {
+      platforms.map(({ name, url, img }) => (
+        <a href={url} class="m-2" aria-label={`Link to ${name} profile`}>
+          <img src={img} alt="Social media icon" height="30" width="30" />
+        </a>
+      ))
+    }
+  </div>
 </footer>

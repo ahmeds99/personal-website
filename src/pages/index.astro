@@ -1,12 +1,46 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import img_of_me from "@assets/meg_selv.jpeg";
 ---
 
 <Layout title="Ahmed Waseem Saeed">
   <main>
-    <h1>Welcome to <span class="text-gradient">my page</span></h1>
-
-    <p>Some text while I get to know stuff...</p>
+    <h1>Halla!</h1>
   </main>
+
+  <p>
+    Er litt på saken her med denne nettsida... Uansett, velkommen! Poenget her
+    blir å vise frem litt info om meg, inkludert prosjekter jeg har jobbet med,
+    interessante bøker og andre interesser. Muligens litt på fotballfronten
+    også, spesielt LSK 🐥!
+  </p>
+
+  <br />
+
+  <p>Sjekk ut About-siden for mer info.</p>
+
+  <!-- <Image
+    src={img_of_me}
+    alt="Photo of Ahmed"
+    class="mx-auto rounded-full mt-8 w-64 h-64 object-cover border-solid border-2 border-black"
+  /> -->
+
+  <div class="relative group w-64 h-64 mx-auto">
+    {/* Static image */}
+    <Image
+      src={img_of_me}
+      alt="Photo of me"
+      class="w-full h-full rounded-full object-cover"
+    />
+
+    <img
+      src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm05NzVpdHk3cjQ1d3RoYjI1czF3bWMzeGx4OXJnZjhiMXpub20zZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AUcEARodt6kVy4geVS/giphy.gif"
+      alt="Lillestrøm GIF on hover"
+      class="w-full h-full absolute rounded-full inset-0 opacity-0 group-hover:opacity-100"
+    />
+  </div>
 </Layout>
+
+¨
