@@ -1,16 +1,17 @@
 ---
 const baseURl = "https://www.";
+const basePath = import.meta.env.BASE_URL;
 
 const platforms = [
   {
     name: "GitHub",
     url: `${baseURl}github.com/ahmeds99`,
-    img: "/some/github.svg",
+    img: `${basePath}/some/github.svg`,
   },
   {
     name: "LinkedIn",
     url: `${baseURl}linkedin.com/in/ahmed-waseem-saeed-122b2b1a2`,
-    img: "/some/linkedin.svg",
+    img: `${basePath}/some/linkedin.svg`,
   },
 ];
 ---
