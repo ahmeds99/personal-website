@@ -2,6 +2,10 @@
 const { post } = Astro.props;
 const { title, mediaURL, description, newsSite, author, pubDate } = post;
 
+const date = new Date(pubDate);
+const dateString =
+  date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
+
 // TODO: add styling her
 // FIXME: dato-format, kursiv på skrevet av
 // TODO: lenke til nyhetssted
@@ -9,8 +13,8 @@ const { title, mediaURL, description, newsSite, author, pubDate } = post;
 
 <li class="mt-20">
   <h2 class="font-bold text-center mb-4">{title}</h2>
-  <p>Dato: {pubDate.slice(0, 10)}</p>
-  <p>Nyhetssted: {newsSite}</p>
+  <p>📅: {dateString}</p>
+  <p>📰: {newsSite}</p>
   <p>{description}</p>
   <a href={mediaURL}>Lenke til artikkel</a>
   <p class="italic">Skrevet av: {author}</p>
