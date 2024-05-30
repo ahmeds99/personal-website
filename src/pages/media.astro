@@ -1,0 +1,18 @@
+---
+import MediaPost from "@components/MediaPost.astro";
+import Layout from "src/layouts/Layout.astro";
+const allMediaPosts = await Astro.glob("../content/media/*.md").then((posts) =>
+  posts.sort((a, b) => (a.frontmatter.date < b.frontmatter.date ? -1 : 1))
+);
+
+const pageTitle = "Media";
+---
+
+<Layout title={pageTitle}>
+  <main>
+    <h1>{pageTitle}</h1>
+    <ul>
+      {allMediaPosts.map((post) => <MediaPost post={post.frontmatter} />)}
+    </ul>
+  </main>
+</Layout>
