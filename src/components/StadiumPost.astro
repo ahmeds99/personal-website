@@ -3,7 +3,7 @@ import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
 const { post } = Astro.props;
-const { title, rating, internalName } = post;
+const { title, rating, internalName, city, country } = post;
 
 const mainImagePath = "../assets/stadiums/" + internalName + "/1.jpg";
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -17,8 +17,9 @@ if (!images[mainImagePath])
 ---
 
 <!-- TODO: onclick åpner [stadium].astro som er faktiske beskrivelsen av stadionen, hover øker størrelse -->
-<div>
-  <h5 class="text-center font-semibold mb-2">{title} ({rating})</h5>
+<div class="text-center mb-2">
+  <h5 class="font-semibold mb-2">🏟️ {title} ({rating})</h5>
+  <p class="mb-2">📍 {city}, {country}</p>
   <a href="media/">
     <Image
       src={images[mainImagePath]()}

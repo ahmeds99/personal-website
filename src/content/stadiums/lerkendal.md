@@ -4,7 +4,7 @@ internalName: "lerkendal"
 homeTeam: "Rosenborg"
 awayTeam: "Lillestrøm"
 city: "Trondheim"
-country: "Norway"
+country: "Norge"
 rating: 8.5
 mediaURL: "https://www.kode24.no/artikkel/funksjonell-programmering-blir-et-viktig-paradigme-fremover/79929546"
 visited: 2023-07-09
