@@ -1,0 +1,31 @@
+---
+import StadiumPost from "@components/StadiumPost.astro";
+import Layout from "src/layouts/Layout.astro";
+
+const allStadiums = await Astro.glob("../content/stadiums/*.md");
+
+const pageTitle = "Stadioner";
+---
+
+<Layout title={pageTitle}>
+  <main>
+    <h1>{pageTitle}</h1>
+    <p class="m-8 text-justify">
+      Digger fotball og spesielt å utforske ulike stadioner og se live ⚽️. Går
+      for det meste i Lillestrøm (både hjemme og borte), men har ikke noe imot å
+      sjekke ut andre steder også. Her er en oversikt over stadionene jeg har
+      besøkt og hva jeg rater dem fra 1 til og med 10. Ta kontakt hvis du har
+      noen hiddens gems på lager som du mener jeg bør sjekke ut!
+    </p>
+    <div class="grid grid-cols-3 gap-8 mt-12">
+      {
+        allStadiums.map((stadium) => (
+          <StadiumPost
+            key={stadium.frontmatter.internalName}
+            post={stadium.frontmatter}
+          />
+        ))
+      }
+    </div>
+  </main>
+</Layout>
