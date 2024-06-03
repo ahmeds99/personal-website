@@ -3,6 +3,7 @@ import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
 const { post } = Astro.props;
+// TODO: types
 const { title, rating, internalName, city, country } = post;
 
 const mainImagePath = "../assets/stadiums/" + internalName + "/1.jpg";
