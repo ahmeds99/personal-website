@@ -1,17 +1,17 @@
 ---
+import { fromDateToFormattedString } from "src/scripts/utils";
+
 const { post } = Astro.props;
 const { title, mediaURL, description, newsSite, author, pubDate } = post;
 
-const date = new Date(pubDate);
-const dateString =
-  date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
+const date = fromDateToFormattedString(pubDate);
 ---
 
 <li class="mt-16">
   <h2 class="font-bold text-center mb-4">
     <a href={mediaURL} class="hover-underline">🔗 {title}</a>
   </h2>
-  <p>📅: {dateString}</p>
+  <p>📅: {date}</p>
   <p>
     📰: <a href={"https://" + newsSite} class="hover-underline">{newsSite}</a>
   </p>

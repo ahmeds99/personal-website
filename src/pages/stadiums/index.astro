@@ -2,7 +2,7 @@
 import StadiumPost from "@components/StadiumPost.astro";
 import Layout from "src/layouts/Layout.astro";
 
-const allStadiums = await Astro.glob("../content/stadiums/*.md");
+const allStadiums = await Astro.glob("../../content/stadiums/*.md");
 
 const pageTitle = "Stadioner";
 ---
@@ -21,8 +21,16 @@ const pageTitle = "Stadioner";
       {
         allStadiums.map((stadium) => (
           <StadiumPost
-            key={stadium.frontmatter.internalName}
-            post={stadium.frontmatter}
+            post={{
+              title: stadium.frontmatter.title,
+              internalName: stadium.frontmatter.internalName,
+              homeTeam: stadium.frontmatter.homeTeam,
+              awayTeam: stadium.frontmatter.awayTeam,
+              city: stadium.frontmatter.city,
+              country: stadium.frontmatter.country,
+              rating: stadium.frontmatter.rating,
+              visited: stadium.frontmatter.visited,
+            }}
           />
         ))
       }

@@ -1,10 +1,15 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import type { IStadium } from "src/scripts/IStadium";
+import { fromDateToFormattedString } from "src/scripts/utils.ts";
+
+interface Props {
+  post: IStadium;
+}
 
 const { post } = Astro.props;
-// TODO: types
-const { title, rating, internalName, city, country } = post;
+const { title, rating, internalName, city, country, visited } = post;
 
 const mainImagePath = "../assets/stadiums/" + internalName + "/1.jpg";
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -18,9 +23,10 @@ if (!images[mainImagePath])
 ---
 
 <!-- TODO: onclick åpner [stadium].astro som er faktiske beskrivelsen av stadionen, hover øker størrelse -->
-<div class="text-center mb-2">
-  <h5 class="font-semibold mb-2">🏟️ {title} ({rating})</h5>
-  <p class="mb-2">📍 {city}, {country}</p>
+<div class="mb-2">
+  <h5 class="font-semibold text-center">🏟️ {title} ({rating})</h5>
+  <p>📍 {city}, {country}</p>
+  <p>📅 {fromDateToFormattedString(visited)}</p>
   <a href="media/">
     <Image
       src={images[mainImagePath]()}

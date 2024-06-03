@@ -6,7 +6,6 @@ awayTeam: "Lillestrøm"
 city: "Trondheim"
 country: "Norge"
 rating: 8.5
-mediaURL: "https://www.kode24.no/artikkel/funksjonell-programmering-blir-et-viktig-paradigme-fremover/79929546"
 visited: 2023-07-09
 ---
 
