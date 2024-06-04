@@ -1,5 +1,8 @@
 ---
+export const prerender = true;
+
 import type { GetStaticPaths } from "astro";
+import { Image } from "astro:assets";
 import type { IStadium } from "src/scripts/IStadium";
 
 export const getStaticPaths = (async () => {
@@ -29,16 +32,67 @@ export const getStaticPaths = (async () => {
 
 const { stadium } = Astro.props;
 
-const mainImagePath =
-  "../../assets/stadiums/" + stadium.internalName + "/1.jpg";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "../../assets/stadiums/*/*.{jpeg,jpg,png,gif,mp4}"
 );
 
-if (!images[mainImagePath])
-  throw new Error(
-    `"${mainImagePath}" does not exist in glob: "src/assets/lerkendal/.{jpeg,jpg,png,gif}"`
-  );
+const title = "Stadion";
+
+const imagesAsArray = Object.entries(images)
+  .filter(([key]) => key.includes(stadium.internalName))
+  .map(([, value]) => value());
 ---
 
-<!-- TODO: html med dataen  som jeg har, hat alt nå-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/personal-website/favicon.svg"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+
+  <body class="bg-zinc-700">
+    <div class="relative h-[100svh] flex">
+      {
+        imagesAsArray.map((image) => (
+          <Image
+            src={image}
+            alt=""
+            quality="high"
+            class="h-full object-contain cursor-pointer"
+            onclick={"history.back()"}
+          />
+        ))
+      }
+
+      <!-- 
+        <Image
+        src={images[mainImagePath]()}
+        alt=""
+        quality="high"
+        class="h-full object-contain cursor-pointer"
+        onclick={"history.back()"}
+      />
+
+      {
+        numberOfImages > 1 && (
+          <>
+            <div class="absolute top-0 bottom-0 left-0 w-[10svh] flex items-center justify-center gap-4 bg-black bg-opacity-50 text-white text-2xl">
+              <button class="previous text-3xl z-10">{"<"}</button>
+            </div>
+            <div class="absolute top-0 bottom-0 right-0 w-[10svh] flex items-center justify-center gap-4 bg-black bg-opacity-50 text-white text-2xl">
+              <button class="next text-3xl z-10">{">"}</button>
+            </div>
+          </>
+        )
+      } 
+    -->
+    </div>
+  </body>
+</html>
