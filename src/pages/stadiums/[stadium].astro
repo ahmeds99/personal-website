@@ -1,0 +1,44 @@
+---
+import type { GetStaticPaths } from "astro";
+import type { IStadium } from "src/scripts/IStadium";
+
+export const getStaticPaths = (async () => {
+  const stadiumFiles: any[] = await Astro.glob("../../content/stadiums/*.md");
+
+  const stadiumObjects: IStadium[] = stadiumFiles.map((stadium: any) => ({
+    title: stadium.frontmatter.title,
+    internalName: stadium.frontmatter.internalName,
+    description: stadium.rawContent(),
+    homeTeam: stadium.frontmatter.homeTeam,
+    awayTeam: stadium.frontmatter.awayTeam,
+    city: stadium.frontmatter.city,
+    country: stadium.frontmatter.country,
+    rating: stadium.frontmatter.rating,
+    visited: stadium.frontmatter.visited,
+  }));
+
+  return stadiumObjects.map((stadium) => ({
+    params: {
+      stadium: stadium.internalName,
+    },
+    props: {
+      stadium,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { stadium } = Astro.props;
+
+const mainImagePath =
+  "../../assets/stadiums/" + stadium.internalName + "/1.jpg";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/stadiums/*/*.{jpeg,jpg,png,gif,mp4}"
+);
+
+if (!images[mainImagePath])
+  throw new Error(
+    `"${mainImagePath}" does not exist in glob: "src/assets/lerkendal/.{jpeg,jpg,png,gif}"`
+  );
+---
+
+<!-- TODO: html med dataen  som jeg har, hat alt nå-->

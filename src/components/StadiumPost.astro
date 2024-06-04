@@ -13,7 +13,7 @@ const { title, rating, internalName, city, country, visited } = post;
 
 const mainImagePath = "../assets/stadiums/" + internalName + "/1.jpg";
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/stadiums/*/*.{jpeg,jpg,png,gif}"
+  "../assets/stadiums/*/1.{jpeg,jpg,png,gif,mp4}"
 );
 
 if (!images[mainImagePath])
