@@ -21,13 +21,14 @@ if (!images[mainImagePath])
     `"${mainImagePath}" does not exist in glob: "src/assets/lerkendal/.{jpeg,jpg,png,gif}"`
   );
 
-console.log(await images[mainImagePath]());
+// console.log(await images[mainImagePath]());
 ---
 
 <!-- TODO: onclick åpner [stadium].astro som er faktiske beskrivelsen av stadionen, hover øker størrelse -->
 <div class="mb-2">
-  <h5 class="font-semibold text-center">🏟️ {title} ({rating})</h5>
+  <h5 class="font-semibold text-center">🏟️ {title}</h5>
   <p>📍 {city}, {country}</p>
+  <p>⭐️ {rating} / 10</p>
   <p class="mb-2">📅 {fromDateToFormattedString(visited)}</p>
   <a href=`/personal-website/stadiums/${internalName}`>
     <Image

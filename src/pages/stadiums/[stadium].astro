@@ -1,8 +1,8 @@
 ---
 export const prerender = true;
 
+import Carousel from "@components/Carousel";
 import type { GetStaticPaths } from "astro";
-import { Image } from "astro:assets";
 import type { IStadium } from "src/scripts/IStadium";
 
 export const getStaticPaths = (async () => {
@@ -38,9 +38,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 const title = "Stadion";
 
-const imagesAsArray = Object.entries(images)
-  .filter(([key]) => key.includes(stadium.internalName))
-  .map(([, value]) => value());
+const filteredImages = Object.entries(images).filter(([key]) =>
+  key.includes(stadium.internalName)
+);
+
+const numberOfImages = filteredImages.length;
 ---
 
 <html lang="en">
@@ -58,41 +60,8 @@ const imagesAsArray = Object.entries(images)
   </head>
 
   <body class="bg-zinc-700">
-    <div class="relative h-[100svh] flex">
-      {
-        imagesAsArray.map((image) => (
-          <Image
-            src={image}
-            alt=""
-            quality="high"
-            class="h-full object-contain cursor-pointer"
-            onclick={"history.back()"}
-          />
-        ))
-      }
-
-      <!-- 
-        <Image
-        src={images[mainImagePath]()}
-        alt=""
-        quality="high"
-        class="h-full object-contain cursor-pointer"
-        onclick={"history.back()"}
-      />
-
-      {
-        numberOfImages > 1 && (
-          <>
-            <div class="absolute top-0 bottom-0 left-0 w-[10svh] flex items-center justify-center gap-4 bg-black bg-opacity-50 text-white text-2xl">
-              <button class="previous text-3xl z-10">{"<"}</button>
-            </div>
-            <div class="absolute top-0 bottom-0 right-0 w-[10svh] flex items-center justify-center gap-4 bg-black bg-opacity-50 text-white text-2xl">
-              <button class="next text-3xl z-10">{">"}</button>
-            </div>
-          </>
-        )
-      } 
-    -->
+    <div class="relative h-[100svh] w-[150svh] ml-32 flex">
+      <Carousel stadium={stadium} numberOfImages={numberOfImages} client:load />
     </div>
   </body>
 </html>
