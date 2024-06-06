@@ -8,7 +8,5 @@ import react from "@astrojs/react";
 export default defineConfig({
   output: "server",
   adapter: vercel(),
-  site: "https://github.com/ahmeds99/",
-  base: "personal-website",
-  integrations: [tailwind(), react()]
+  integrations: [tailwind(), react()],
 });
