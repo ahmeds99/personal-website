@@ -2,7 +2,12 @@
 import StadiumPost from "@components/StadiumPost.astro";
 import Layout from "src/layouts/Layout.astro";
 
-const allStadiums = await Astro.glob("../../content/stadiums/*.md");
+const allStadiums = await Astro.glob("../../content/stadiums/*.md").then(
+  (res) =>
+    res.sort((a, b) => {
+      return a.frontmatter.visited < b.frontmatter.visited ? 1 : -1;
+    })
+);
 
 const pageTitle = "Stadioner";
 ---
