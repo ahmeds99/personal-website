@@ -5,7 +5,7 @@ homeTeam: "Rosenborg"
 awayTeam: "Lillestrøm"
 city: "Trondheim"
 country: "Norge"
-rating: 8.5
+rating: 7.3
 visited: 2023-07-09
 ---
 
