@@ -27,29 +27,36 @@ export default function Carousel(props: Props) {
   };
 
   return (
-    <div className="flex grid grid-cols-2 text-white">
-      <div className="border relative">
+    <div className="flex flex-col md:flex-row mr-28 md:mr-0 text-white">
+      <div className="flex flex-col">
+        <h2 className="text-center text-6xl md:text-3xl m-8">Beskrivelse</h2>
+        <p className="text-3xl mb-10 pr-10 md:text-base md:mb-0">
+          {stadium.description}
+        </p>
+      </div>
+
+      <div className="border relative flex md:mr-0 justify-center md:block mt-4 md:mt-0">
         <img
           key={images[currentIndex]}
           src={images[currentIndex]}
           alt="Bilde av stadion"
-          className="h-full w-auto object-contain cursor-pointer"
+          className="h-full w-auto max-w-full md:max-w-none object-contain cursor-pointer"
           onClick={() => history.back()}
         />
 
         {numberOfImages > 1 && (
           <>
-            <div className="absolute top-0 bottom-0 left-0 w-[8svh] flex items-center justify-center gap-4 bg-black bg-opacity-50 text-2xl">
+            <div className="absolute top-0 bottom-0 left-0 w-[12svh] md:w-[8svh] flex items-center justify-center gap-4 bg-black bg-opacity-50 text-2xl">
               <button
-                className="previous text-3xl z-10"
+                className="previous text-5xl md:text-3xl z-10 hover:scale-110 hover:scale-150 duration-300 ease-in-out"
                 onClick={previousClickHandler}
               >
                 {"<"}
               </button>
             </div>
-            <div className="absolute top-0 bottom-0 right-0 w-[8svh] flex items-center justify-center gap-4 bg-black bg-opacity-50 text-2xl">
+            <div className="absolute top-0 bottom-0 right-0 w-[12svh] md:w-[8svh] flex items-center justify-center gap-4 bg-black bg-opacity-50 text-2xl">
               <button
-                className="next text-3xl z-10  hover:scale-110 hover:scale-150 duration-300 ease-in-out "
+                className="next text-5xl md:text-3xl z-10 hover:scale-110 hover:scale-150 duration-300 ease-in-out"
                 onClick={nextClickHandler}
               >
                 {">"}
@@ -57,10 +64,6 @@ export default function Carousel(props: Props) {
             </div>
           </>
         )}
-      </div>
-      <div className="mt-12 ml-12">
-        <h2 className="text-center text-3xl mb-4">Beskrivelse</h2>
-        <p className="">{stadium.description}</p>
       </div>
     </div>
   );
