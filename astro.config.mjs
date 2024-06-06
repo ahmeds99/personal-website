@@ -8,5 +8,9 @@ import react from "@astrojs/react";
 export default defineConfig({
   output: "server",
   adapter: vercel(),
+  site: "https://personal-website-rho-peach.vercel.app",
   integrations: [tailwind(), react()],
+  devToolbar: {
+    enabled: false,
+  },
 });
