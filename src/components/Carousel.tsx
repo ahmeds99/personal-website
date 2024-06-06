@@ -18,8 +18,6 @@ export default function Carousel(props: Props) {
     images.push(baseImgPath + stadium.internalName + "/" + (i + 1) + ".jpg");
   }
 
-  console.log("img", props);
-
   const nextClickHandler = () => {
     setCurrentIndex((currentIndex + 1) % numberOfImages);
   };
