@@ -6,7 +6,7 @@ interface Props {
   numberOfImages: number;
 }
 
-const baseImgPath = "../../../src/assets/stadiums/";
+const baseImgPath = "/stadiums/";
 
 export default function Carousel(props: Props) {
   const { stadium, numberOfImages } = props;
@@ -17,6 +17,8 @@ export default function Carousel(props: Props) {
   for (let i = 0; i < numberOfImages; i++) {
     images.push(baseImgPath + stadium.internalName + "/" + (i + 1) + ".jpg");
   }
+
+  console.log("img", props);
 
   const nextClickHandler = () => {
     setCurrentIndex((currentIndex + 1) % numberOfImages);
@@ -32,7 +34,7 @@ export default function Carousel(props: Props) {
         <img
           key={images[currentIndex]}
           src={images[currentIndex]}
-          alt="img"
+          alt="Bilde av stadion"
           className="h-full w-auto object-contain cursor-pointer"
           onClick={() => history.back()}
         />

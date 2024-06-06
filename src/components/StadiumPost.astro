@@ -11,14 +11,14 @@ interface Props {
 const { post } = Astro.props;
 const { title, rating, internalName, city, country, visited } = post;
 
-const mainImagePath = "../assets/stadiums/" + internalName + "/1.jpg";
+const mainImagePath = "/public/stadiums/" + internalName + "/1.jpg";
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/stadiums/*/1.{jpeg,jpg,png,gif,mp4}"
+  "/public/stadiums/*/*.{jpeg,jpg,png,gif,mp4}"
 );
 
 if (!images[mainImagePath])
   throw new Error(
-    `"${mainImagePath}" does not exist in glob: "src/assets/lerkendal/.{jpeg,jpg,png,gif}"`
+    `"${mainImagePath}" does not exist in glob: "/public/stadiums/*/*.{jpeg,jpg,png,gif,mp4}"`
   );
 ---
 

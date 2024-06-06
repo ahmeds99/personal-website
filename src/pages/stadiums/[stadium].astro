@@ -33,7 +33,7 @@ export const getStaticPaths = (async () => {
 const { stadium } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "../../assets/stadiums/*/*.{jpeg,jpg,png,gif,mp4}"
+  "/public/stadiums/*/*.{jpeg,jpg,png,gif,mp4}"
 );
 
 const title = "Stadion";
