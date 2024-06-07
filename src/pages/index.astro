@@ -18,9 +18,13 @@ import img_of_me from "@assets/meg_selv.jpeg";
 
     <br />
 
-    <p>Sjekk ut "Om meg"-siden for mer info.</p>
+    <p>
+      Sjekk ut <a class="hover-underline text-blue-900" href="/about"
+        >"Om meg"</a
+      >-siden for mer info.
+    </p>
 
-    <div class="relative group w-64 h-64 mx-auto md:mt-16 mt-8">
+    <div class="relative group w-64 h-64 md:w-80 md:h-80 mx-auto md:mt-16 mt-8">
       <Image
         src={img_of_me}
         alt="Photo of me"
@@ -35,3 +39,12 @@ import img_of_me from "@assets/meg_selv.jpeg";
     </div>
   </main>
 </Layout>
+
+<style>
+  .hover-underline:hover {
+    text-decoration: underline;
+    text-decoration-color: #9c9cef;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+  }
+</style>
