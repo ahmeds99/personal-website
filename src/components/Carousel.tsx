@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { IStadium } from "src/scripts/IStadium";
 
 interface Props {
@@ -12,11 +12,23 @@ export default function Carousel(props: Props) {
   const { stadium, numberOfImages } = props;
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [preloadedImages, setPreloadedImages] = useState<HTMLImageElement[]>(
+    []
+  );
 
-  const images = [];
-  for (let i = 0; i < numberOfImages; i++) {
-    images.push(baseImgPath + stadium.internalName + "/" + (i + 1) + ".webp");
-  }
+  useEffect(() => {
+    const imagesToPreload = [];
+    for (let i = 0; i < numberOfImages; i++) {
+      const imgSrc =
+        baseImgPath + stadium.internalName + "/" + (i + 1) + ".webp";
+      const img = new Image();
+      img.src = imgSrc;
+      imagesToPreload.push(img);
+    }
+    setPreloadedImages(imagesToPreload);
+  }, [stadium.internalName, numberOfImages]);
+
+  const images = preloadedImages.map((img) => img.src);
 
   const nextClickHandler = () => {
     setCurrentIndex((currentIndex + 1) % numberOfImages);
@@ -36,13 +48,15 @@ export default function Carousel(props: Props) {
       </div>
 
       <div className="border relative flex md:mr-0 justify-center md:block mt-4 md:mt-0">
-        <img
-          key={images[currentIndex]}
-          src={images[currentIndex]}
-          alt="Bilde av stadion"
-          className="h-full w-auto max-w-full md:max-w-none object-contain cursor-pointer"
-          onClick={() => history.back()}
-        />
+        {preloadedImages[currentIndex] && (
+          <img
+            key={preloadedImages[currentIndex].src}
+            src={preloadedImages[currentIndex].src}
+            alt="Bilde av stadion"
+            className="h-full w-auto max-w-full md:max-w-none object-contain cursor-pointer"
+            onClick={() => history.back()}
+          />
+        )}
 
         {numberOfImages > 1 && (
           <>
