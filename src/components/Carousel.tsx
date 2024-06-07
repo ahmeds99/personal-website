@@ -15,7 +15,7 @@ export default function Carousel(props: Props) {
 
   const images = [];
   for (let i = 0; i < numberOfImages; i++) {
-    images.push(baseImgPath + stadium.internalName + "/" + (i + 1) + ".jpg");
+    images.push(baseImgPath + stadium.internalName + "/" + (i + 1) + ".webp");
   }
 
   const nextClickHandler = () => {
