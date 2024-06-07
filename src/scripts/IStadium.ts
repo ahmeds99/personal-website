@@ -8,4 +8,5 @@ export interface IStadium {
   country: string;
   rating: number;
   visited: string;
+  numberOfVideos: number;
 }

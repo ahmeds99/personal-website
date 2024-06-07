@@ -18,6 +18,7 @@ export const getStaticPaths = (async () => {
     country: stadium.frontmatter.country,
     rating: stadium.frontmatter.rating,
     visited: stadium.frontmatter.visited,
+    numberOfVideos: stadium.frontmatter.numberOfVideos,
   }));
 
   return stadiumObjects.map((stadium) => ({
@@ -33,7 +34,7 @@ export const getStaticPaths = (async () => {
 const { stadium } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/public/stadiums/*/*.{webp,jpg,png,gif,mp4}"
+  "/public/stadiums/*/*.webp"
 );
 
 const title = "Stadion";

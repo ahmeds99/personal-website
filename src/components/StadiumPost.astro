@@ -13,16 +13,15 @@ const { title, rating, internalName, city, country, visited } = post;
 
 const mainImagePath = "/public/stadiums/" + internalName + "/1.webp";
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/public/stadiums/*/1.{webp,jpg,png,gif,mp4}"
+  "/public/stadiums/*/1.webp"
 );
 
 if (!images[mainImagePath])
   throw new Error(
-    `"${mainImagePath}" does not exist in glob: "/public/stadiums/*/1.{webp,jpg,png,gif,mp4}"`
+    `"${mainImagePath}" does not exist in glob: "/public/stadiums/*/1.webp"`
   );
 ---
 
-<!-- TODO: onclick åpner [stadium].astro som er faktiske beskrivelsen av stadionen, hover øker størrelse -->
 <div class="mb-2">
   <h5 class="font-semibold text-center">🏟️ {title}</h5>
   <p>📍 {city}, {country}</p>
