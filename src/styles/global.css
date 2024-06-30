@@ -35,6 +35,11 @@ h1 {
   margin-bottom: 1em;
 }
 
+h2 {
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
 .nav-links {
   width: 100%;
   top: 5rem;

@@ -5,15 +5,15 @@ pubDate: 2024-06-30
 
 Denne miniserien av blogginnlegg skal vise litt om hvordan de ulike ukene i Sats er og hva jeg har gjort (og lært) som sommerstudent i Sats. La oss begynne med første uka!
 
-## Tech
+## Tech 🧑‍💻
 
 Ettersom vi primært skal jobbe mot iOS-appen til Sats, så oppsto det et behov for å lære Swift. Jeg jobber fullstack også, der C# og .net blir brukt for backend. To språk og rammeverk jeg altså ikke har rørt før!
 
-## Teamet
+## Teamet 👏
 
 Teamet består av seks pers, fire utviklere, en designer og en produkutsjef.
 
-## Hva har jeg gjort da?
+## Hva har jeg gjort da? 🤔
 
 Vel, første uke ble brukt for å bli kjent med iOS-utvikling og hvordan SwiftUI kan benyttes for å lage mobilapper. Fikk også dykket litt ned i kodebasen til Sats for å se på arkitekturen og hvordan ting henger sammen. Både backend og appen har en clean arkitektur som gjør det veldig lett å sette seg inn i koden.
 
@@ -23,6 +23,6 @@ Foruten læring av teknologien, var det en del innføringsmøter rundt oppgaven 
 
 Alt i alt, en god uke og fin start!
 
-## TL;DR
+## TL;DR 📜
 
 Lærte SwiftUI. IN2000 er fortsatt good shit.

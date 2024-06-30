@@ -1,0 +1,15 @@
+---
+import { fromDateToFormattedString } from "src/scripts/utils";
+
+const { post } = Astro.props;
+const title = post.frontmatter.title;
+
+const date = fromDateToFormattedString(post.frontmatter.pubDate);
+---
+
+<li class="mt-16 border-t-2 border-black border-dashed">
+  <h2 class="font-bold text-center mb-4">{title}</h2>
+  <p class="mb-2">📅: {date}</p>
+
+  <post.Content />
+</li>
