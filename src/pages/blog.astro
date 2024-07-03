@@ -1,6 +1,9 @@
 ---
 import BlogPost from "@components/BlogPost.astro";
 import Layout from "src/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import SatsImage from "@assets/sats.webp";
+
 const allBlogPosts = await Astro.glob("../content/sats/*.md").then((posts) =>
   posts.sort((a, b) => (a.frontmatter.date < b.frontmatter.date ? -1 : 1))
 );
@@ -11,6 +14,13 @@ const pageTitle = "Blogg";
 <Layout title={pageTitle}>
   <main>
     <h1>{pageTitle}</h1>
+    <Image
+      src={SatsImage}
+      width={450}
+      height={450}
+      alt="Sats logo"
+      class="rounded-xl mx-auto hover:scale-105 duration-500 ease-in-out"
+    />
     <ul>
       {
         allBlogPosts.map((post) => (
