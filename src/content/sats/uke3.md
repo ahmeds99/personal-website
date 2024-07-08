@@ -1,6 +1,7 @@
 ---
 title: "Uke 3 - MVP, demo og ferie"
 pubDate: 2024-07-08
+id: 3
 ---
 
 Uke 3! Mer backend, service bus og demo-tid!

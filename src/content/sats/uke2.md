@@ -1,6 +1,7 @@
 ---
 title: "Uke 2 - Lande på løsning, C# og trening"
 pubDate: 2024-06-30
+id: 2
 ---
 
 Uke 2! C#, Azure, deploys, ViewModel og gruppetimer.

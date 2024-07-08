@@ -1,6 +1,7 @@
 ---
 title: "Uke 1 - Bli kjent med teknologiene"
 pubDate: 2024-06-30
+id: 1
 ---
 
 Denne miniserien av blogginnlegg skal vise litt om hvordan de ulike ukene i Sats er og hva jeg har gjort (og lært) som sommerstudent i Sats. La oss begynne med første uka!
