@@ -5,11 +5,50 @@ const { post } = Astro.props;
 const title = post.frontmatter.title;
 
 const date = fromDateToFormattedString(post.frontmatter.pubDate);
+const uniqueId = `content-div-${post.frontmatter.id}`;
 ---
 
 <li class="mt-12 border-t-2 border-black border-dashed">
-  <h2 class="font-bold text-center mb-4">{title}</h2>
-  <p class="mb-2">📅: {date}</p>
+  <div class="grid grid-cols-8 mb-4">
+    <h2 class="font-bold text-center col-span-7">{title}</h2>
+    <button class="btn btn-blue toggle-button" data-content-id={uniqueId}>
+      <span>Skjul</span>
+    </button>
+  </div>
 
-  <post.Content />
+  <div class="content-div" id={uniqueId}>
+    <p class="mb-2">📅: {date}</p>
+
+    <post.Content />
+  </div>
 </li>
+
+<script>
+  function onClick(event: Event) {
+    const clickedButton = event.currentTarget as HTMLButtonElement;
+
+    const contentId = clickedButton.getAttribute("data-content-id");
+    console.log("contentId", contentId);
+    if (contentId === null) return;
+
+    const contentDiv = document.getElementById(contentId);
+    console.log("fikk", contentDiv);
+
+    if (contentDiv) {
+      contentDiv.classList.toggle("hidden");
+      const buttonText = contentDiv.classList.contains("hidden")
+        ? "Vis"
+        : "Skjul";
+      const spanElement = clickedButton.querySelector("span");
+      if (spanElement) {
+        spanElement.textContent = buttonText;
+      }
+    }
+  }
+
+  const toggleButtons = document.querySelectorAll("button.toggle-button");
+
+  toggleButtons.forEach((button) => {
+    button.addEventListener("click", (event) => onClick(event));
+  });
+</script>
