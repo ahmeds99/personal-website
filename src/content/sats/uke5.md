@@ -1,7 +1,7 @@
 ---
-title: "[WIP] Uke 5 - Mer iOS, siste sprint og takterasse"
+title: "Uke 5 - Mer iOS, siste sprint og takterasse"
 pubDate: 2024-07-24
-id: 4
+id: 5
 ---
 
 Uke 5! Mer frontend, demo og parprogrammering!
@@ -12,14 +12,10 @@ Starter uka med fly fra Trondheim og rett på kontoret fra Gardermoen med 3 t s�
 
 Utførte også en brukertest på en kompis. Generelt fan av at utviklere blir mer med i designfasen, spesielt på enkel testing.
 
-... TODO:
-
 ## Trening 🏋️
 
 Igjen en del gruppetimer, og Prformance Hi-Itensity og HIIT Circuit kjører meg i grøfta. Hoftefeste allerede på oppvarming 👍. Social run holdes av oss (internsa) denne uka!
 
-... TODO:
-
 ## TL;DR 📜
 
-TODO:
+God kok, nærmer seg slutten.
